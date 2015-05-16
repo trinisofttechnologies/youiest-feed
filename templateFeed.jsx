@@ -1,6 +1,6 @@
 /*** @jsx React.DOM */
 userId = "nicolsondsouza";
-var feedList = new React.createClass({
+var FeedList = new React.createClass({
 	getInitialState: function(){
 		// var inbox = [];
 		// var user = WI.findOne(userId);
@@ -39,7 +39,7 @@ var feedList = new React.createClass({
 		var self = this;
 		feedlist = this.state.inbox.map(function(feedData){
 			return (
-				<feed feedData={feedData} onClickFeed={self.onClickFeed}/>
+				<Feed feedData={feedData} onClickFeed={self.onClickFeed}/>
 			)	
 		});
 		return (
@@ -56,9 +56,9 @@ var feedList = new React.createClass({
 		
 	}
 });
-Feed.feedList = feedList;
+Feed.feedList = FeedList;
 
-var feed = new React.createClass({
+var Feed = new React.createClass({
 	"onClickFeed": function(){
 		var feedData = this.props.feedData;
 		// console.log(this.props.feedData)
@@ -102,8 +102,8 @@ var feed = new React.createClass({
 	}
 });
 // db.foo.update({"array.value" : 22}, {"$set" : {"array.$.text" : "blah"}})
-Feed.feed = feed;
+Feed.Feed = Feed;
 
 Template.feedPackage.rendered = function(){
-	React.renderComponent(<feedList />, document.getElementById('feedPackage'))
+	React.renderComponent(<FeedList />, document.getElementById('feedPackage'))
 }
